@@ -1,0 +1,11 @@
+<div>
+    
+    <div  class="wrap" *ngFor="let producto of productos">
+        <p>{{producto.title}}</p>
+        <p>{{producto.price | currency:'USD'}}</p>
+        <button class="button" routerLink="/detalle/{{producto.id}}" >Ver Detalle</button>
+        
+    </div>
+    
+</div>
+

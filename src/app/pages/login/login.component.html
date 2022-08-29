@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="login.component.css">
+
+
+<div class="container">
+	
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login">
+				<div class="login__field">
+					<img src="https://cdn-icons-png.flaticon.com/512/3953/3953536.png" class="logo">
+					<img src="https://cdn-icons-png.flaticon.com/128/982/982440.png" class="logo2">
+     				<img src="https://cdn-icons-png.flaticon.com/128/982/982428.png" class="logo3">
+                    <form [formGroup]="myForm" (ngSubmit)="logearse()" ></form>
+                    <div>
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" class="login__input" placeholder="Email" formControlName="correo">
+                        
+                    </div>
+                    <div *ngIf="myForm.get('correo')?.errors && myForm.get('correo')?.dirty">
+                        <p *ngIf="myForm.get('correo')?.hasError('required')">El campo es obligatorio</p>
+                    </div>
+				</div>
+				<div class="login__field">
+                    <div>
+                        <input type="password" class="login__input" placeholder="Contraseña" type="text" formControlName="clave" [ngClass]="{error:myForm.get('clave')?.hasError('required') && myForm.get('clave')?.dirty,warning:myForm.get('clave')?.hasError('minlength') && myForm.get('clave')?.hasError('maxlenght') && myForm.get('clave')?.dirty }">
+                    </div>
+                    
+					<i class="login__icon fas fa-lock"></i>
+					
+				</div>
+				<button class="button login__submit" type="submit" [disabled]="myForm.invalid">
+					<span class="button__text">Iniciar sesion</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+		
+		</div>		
+	</div>
+</div>

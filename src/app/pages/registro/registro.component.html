@@ -1,0 +1,66 @@
+
+
+<!--Registrooo-->
+<link rel="stylesheet" type="text/css" href="registro.component.css">
+
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login">
+				<div class="login__field">
+      <img src="https://cdn-icons-png.flaticon.com/512/3953/3953536.png" class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/4565/4565423.png" class="logo2">
+      <img src="https://cdn-icons-png.flaticon.com/512/4565/4565827.png" class="logo3">
+            <div>
+              <form [formGroup]="myForm" (ngSubmit)="registrarse()" ></form>
+              <div>
+                <i class="login__icon fas fa-user"></i>
+                <input type="text" class="login__input" placeholder="Nombre" formControlName="nombre">
+
+            <div *ngIf="myForm.get('nombre')?.errors && myForm.get('nombre')?.dirty">
+                <p *ngIf="myForm.get('nombre')?.hasError('required')">El campo es obligatorio</p>
+            </div>
+            
+          <div>
+            <div>
+              <div>
+                <i class="login__icon fas fa-user"></i>
+                <div class="login__field">
+                <input  for="email" type="text" class="login__input" placeholder="Email" formControlName="correo"   type="text" [ngClass]="{error:myForm.get('correo')?.errors && myForm.get('correo')?.dirty,warnin:myForm.get('correo')?.hasError('email') }" >
+
+            </div>
+            <div *ngIf="myForm.get('correo')?.errors && myForm.get('correo')?.dirty">
+                <p *ngIf="myForm.get('correo')?.hasError('required')">El campo es obligatorio</p>
+                <p *ngIf="myForm.get('correo')?.hasError('email')">El campo debe tener un @</p>
+            </div>
+            <div>
+
+              <input type="number" class="login__input" placeholder="Telefono (Opcional)" formControlName="clave" >
+
+        </div>
+        <div>
+          <div class="login__field">
+          <input type="password" class="login__input" placeholder="Contraseña" formControlName="clave" [ngClass]="{error:myForm.get('clave')?.hasError('required') && myForm.get('clave')?.dirty,warning:myForm.get('clave')?.hasError('minlength') && myForm.get('clave')?.hasError('maxlenght') && myForm.get('clave')?.dirty }">
+
+        </div>
+        <div *ngIf="myForm.get('clave')?.errors && myForm.get('clave')?.dirty">
+            <p *ngIf="myForm.get('clave')?.hasError('required')">El campo es obligatorio</p>
+            <p *ngIf="myForm.get('clave')?.hasError('minlength')">Debe tener al menos 6 caracteres</p>
+            <p *ngIf="myForm.get('clave')?.hasError('maxlenght')">y como maximo 10 caracteres...</p>
+        </div>
+        <i class="login__icon fas fa-lock"></i>
+					
+				</div>
+				<button class="button login__submit" type="submit" [disabled]="myForm.invalid">
+					<span class="button__text">Registrarse</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+  </div>		
+</div>
+
+
+
+    
+     
+    

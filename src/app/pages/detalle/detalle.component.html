@@ -1,0 +1,13 @@
+
+
+<div class="detalle" *ngIf="producto">
+    <h2>{{producto?.title}}</h2>
+    <p><b>Precio:</b>{{producto?.price | currency:'USD'}}</p>
+    <p><b>Condicion:</b>{{producto?.condition}}</p>
+    <img class="img" class="" src="{{producto?.thumbnail}}" alt="">
+    <div></div>
+    <a href="error" class="button b-green">Comprar Ahora</a>
+    <a href="error" class="button b-green">Formas de Pago</a>
+   
+</div>
+
